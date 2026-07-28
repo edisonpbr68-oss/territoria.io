@@ -1,0 +1,12 @@
+{
+  "name": "territoria-mvp",
+  "version": "0.1.0",
+  "description": "Territoria - prototype MVP jouable en multijoueur (Phase 1)",
+  "main": "server/server.js",
+  "scripts": {
+    "start": "node server/server.js"
+  },
+  "dependencies": {
+    "ws": "^8.18.0"
+  }
+}
