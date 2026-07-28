@@ -42,6 +42,11 @@ function send(msg) {
 
 function handleMessage(msg) {
   switch (msg.type) {
+    case "gameData":
+      G.data = { factions: msg.factions, units: msg.units, buildings: msg.buildings, factionUniqueTrain: msg.factionUniqueTrain };
+      renderFactionCards();
+      renderBuildMenu();
+      break;
     case "welcome":
       G.myId = msg.playerId;
       G.data = { factions: msg.factions, units: msg.units, buildings: msg.buildings, factionUniqueTrain: msg.factionUniqueTrain };
