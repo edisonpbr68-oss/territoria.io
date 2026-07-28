@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Territoria — Prototype MVP</title>
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<!-- ===================== ÉCRAN DE LOBBY ===================== -->
+<div id="lobbyOverlay" class="overlay">
+  <div class="lobbyBox">
+    <h1>TERRITORIA</h1>
+    <p class="subtitle">Prototype MVP — Plaines Verdoyantes</p>
+
+    <label class="fieldLabel">Votre nom</label>
+    <input id="nameInput" type="text" maxlength="16" placeholder="Joueur1" />
+
+    <label class="fieldLabel">Choisissez votre faction</label>
+    <div id="factionCards" class="factionCards"></div>
+
+    <button id="readyBtn" class="primaryBtn" disabled>Rejoindre &amp; se déclarer prêt</button>
+
+    <div id="lobbyPlayers" class="lobbyPlayers"></div>
+    <p class="hint">La partie démarre automatiquement dès que tous les joueurs connectés ont choisi une faction et sont prêts (2 à 4 joueurs).</p>
+    <p id="lobbyError" class="lobbyError"></p>
+  </div>
+</div>
+
+<!-- ===================== ÉCRAN DE FIN DE PARTIE ===================== -->
+<div id="gameOverOverlay" class="overlay hidden">
+  <div class="lobbyBox">
+    <h1 id="gameOverTitle">Partie terminée</h1>
+    <p id="gameOverText"></p>
+    <button class="primaryBtn" onclick="location.reload()">Rejouer</button>
+  </div>
+</div>
+
+<!-- ===================== INTERFACE DE JEU ===================== -->
+<div id="gameUI" class="hidden">
+  <div id="topBar">
+    <div class="resource"><span class="icon woodIcon"></span><span id="resWood">0</span></div>
+    <div class="resource"><span class="icon foodIcon"></span><span id="resFood">0</span></div>
+    <div class="resource"><span class="icon goldIcon"></span><span id="resGold">0</span></div>
+    <div class="resource"><span class="icon stoneIcon"></span><span id="resStone">0</span></div>
+    <div class="resource popResource"><span class="icon popIcon"></span><span id="resPop">0/0</span></div>
+    <div id="playersBar"></div>
+  </div>
+
+  <div id="gameArea">
+    <canvas id="gameCanvas" width="960" height="640"></canvas>
+    <div id="sidePanel">
+      <div id="selectionInfo"><p class="hint">Cliquez sur une unité ou un bâtiment pour le sélectionner. Clic-droit pour déplacer / récolter / attaquer.</p></div>
+      <div id="buildMenu"></div>
+      <div id="trainMenu"></div>
+    </div>
+  </div>
+</div>
+
+<script src="client.js"></script>
+</body>
+</html>
