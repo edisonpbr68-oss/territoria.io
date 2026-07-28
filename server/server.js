@@ -63,6 +63,14 @@ wss.on("connection", (ws, req) => {
   ws.playerId = playerId;
   ws.roomId = roomId;
 
+  // Envoyé immédiatement à la connexion (avant tout "join") pour que le
+  // client puisse afficher les cartes de faction dans le lobby sans avoir
+  // besoin d'avoir déjà rejoint une partie.
+  ws.send(JSON.stringify({
+    type: "gameData",
+    factions: FACTIONS, units: UNITS, buildings: BUILDINGS, factionUniqueTrain: FACTION_UNIQUE_TRAIN,
+  }));
+
   ws.on("message", (raw) => {
     let msg;
     try { msg = JSON.parse(raw); } catch (e) { return; }
